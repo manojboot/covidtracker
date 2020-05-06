@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+.bg-primary{
+    background-color: #d5d9e0;
+}
+
+.center-block {
+    margin: auto;
+    display: block;
+  }
