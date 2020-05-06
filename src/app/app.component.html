@@ -41,7 +41,7 @@
 </div>
 <br>
 <div>
-<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox" class="center-block"/>
+<!--<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox" class="center-block"/>-->
 </div>
 <br>
 <div class="container">
@@ -57,7 +57,7 @@
           <th>TotalRecovered</th>
       </tr>
   <tbody>
-    <tr *ngFor = "let movie of movies.Countries | slice : 10 :20 | filterPipe: {Country: searchText};">
+    <tr *ngFor = "let movie of movies.Countries | slice : 10 :20 ">
       <td>{{movie.Country}}</td>
       <td>{{movie.NewConfirmed}}</td>
       <td>{{movie.TotalConfirmed}}</td>
