@@ -10,29 +10,27 @@ import {Observable} from "rxjs";
 })
 export class AppComponent {
   title = 'covidTracker';
+  searchText: String = "";
   movies : any;
   data : any[];
-  xLabel :any;
+  allCountries :any;
+  dataCountry : any[];
   constructor(private covidService : CovDataService){}
 
   ngOnInit(){
-   this.caronaWorldStats();
+    this.caronaWorldStats();
     this.caronaCountriesStats();
   }
 
   caronaWorldStats(){
         this.covidService.getMainStats().subscribe(data =>{
           this.movies = data;
-          console.log(this.movies.Global.NewConfirmed);
         })
-  }
+  } 
 
   caronaCountriesStats(){
-    this.covidService.getMainStats().subscribe(data =>{
-      this.movies = data;
-      console.log(this.movies.Countries);
-      this.xLabel.push(this.movies.Countries);
-
+    this.covidService.getCountriesStats().subscribe(dataCountry =>{
+      this.allCountries = dataCountry;
     })
 }
  

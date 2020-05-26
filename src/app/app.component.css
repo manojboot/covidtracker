@@ -1,0 +1,12 @@
+.scrollable{
+
+    height:400px;
+    overflow: scroll;
+    
+}
+th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }

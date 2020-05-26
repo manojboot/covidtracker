@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, filter } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
+import { map } from "rxjs/operators";
+import { MainStat } from '../data/countryStats';
+
+
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CovDataService {
+
+  private readonly url = 'https://covid19.mathdro.id/api';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +24,20 @@ export class CovDataService {
 
 
   getCountriesStats(){
-    return this.http.get("https://api.covid19api.com/summary");
+    return this.http.get("https://corona.lmao.ninja/v2/countries");
+  }
+
+  
+  /*getDailyForecast(): Observable<MainStat> {
+    return this.http.get(`${this.url}`).pipe(
+      map((item: any) => ({
+        cases: item.confirmed.value,
+        deaths: item.deaths.value,
+        recovered: item.recovered.value
+      })));
+  } */
+
+  getCountryDetailStats(country:string){
+      return this.http.get("https://covid19.mathdro.id/api/countries/${country}");
   }
 }

@@ -1,39 +1,43 @@
 <div>
   <br><br>
    <h6>
-  <b><p class="text-center">Covid-19 Daily {{ title }}!</p></b>
+  <b><p class="text-center" style="font-family:monospace;font-size:42px;">Global Covid 19 Tracker</p></b>
   </h6>
 </div>
+<link rel="styleshett" href="https://code.jquery.com/jquery-3.5.1.js">
+<link rel="styleshett" href="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js">
+<link rel="styleshett" href="https://cdn.datatables.net/fixedcolumns/3.3.1/js/dataTables.fixedColumns.min.js">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel = "stylesheet" href = "https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 <br><br>
 <div class="container">  
   <div class="card-deck">
-    <div class="card" style="background-color:aliceblue">
-      <div class="card-body text-center">
-        <b><p class="card-text">Toal Confirmed Cases</p>
+    <div class="card" style="background-color:#1c2429">
+      <div class="card-body text-center"style="color:rgb(238, 232, 232)">
+        <b><p class="Lucida Console" style="font-family:monospace;font-size:22px;">Toal Confirmed Cases</p>
         <p>{{this.movies.Global.TotalConfirmed}}</p>
         <br>
-        <p class="card-text">New Confirmed Cases</p>
+        <p class="card-text" style="font-family:monospace;font-size:22px;">New Confirmed Cases</p>
         <p>{{this.movies.Global.NewConfirmed}}</p>
       </b>
       </div>
     </div>
-    <div class="card" style="background-color:aliceblue">
-      <div class="card-body text-center">
-        <b><p class="card-text">Total Dealths Reported</p>
+    <div class="card" style="background-color:#1c2429">
+      <div class="card-body text-center"style="color:rgb(238, 232, 232)">
+        <b><p class="card-text" style="font-family:monospace;font-size:22px;">Total Dealths Reported</p>
         <p>{{this.movies.Global.TotalDeaths}}</p>
         <br>
-        <p class="card-text">New Dealths Reported</p>
+        <p class="card-text" style="font-family:monospace;font-size:22px;">New Dealths Reported</p>
         <p>{{this.movies.Global.NewDeaths}}</p></b>
       </div>
     </div>
-    <div class="card" style="background-color:aliceblue">
-      <div class="card-body text-center">
-        <b><p class="card-text">Total Recovered Currently</p>
+    <div class="card" style="background-color:#1c2429">
+      <div class="card-body text-center" style="color:rgb(238, 232, 232)">
+        <b><p class="card-text" style="font-family:monospace;font-size:22px;">Total Recovered Currently</p>
         <p>{{this.movies.Global.TotalRecovered}}</p>
         <br>
-        <p class="card-text">New Recovered Currently</p>
+        <p class="card-text" style="font-family:monospace;font-size:22px;">New Recovered Currently</p>
         <p>{{this.movies.Global.NewRecovered}}</p></b>
       </div>
     </div>
@@ -41,37 +45,64 @@
 </div>
 <br>
 <div>
-<!--<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox" class="center-block"/>-->
+<input [(ngModel)]="searchText" placeholder="Search By Country" class="advancedSearchTextbox" class="center-block"/>
 </div>
 <br>
 <div class="container">
-<table class="pure-table" align="center">
+  <div class="row">
+    <div class="col-md-12">
+       <div class="scrollable">
+        <table class="table table-bordered">
+          <thead background="green"> 
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+                <th>Today Cases</th>
+                <th>Total Deaths</th>
+                <th>Today Deaths</th>
+                <th>Recovered</th>
+                <th>Active</th>
+            </tr>
+            </thead>
+        <tbody>
+          <tr *ngFor = "let movie of allCountries | filterPipe : {country : searchText};">
+            <td><img src="{{movie.countryInfo.flag}}" width="30" height="17"/> {{movie.country}} </td>
+            <td>{{movie.cases}}</td>
+            <td>{{movie.todayCases}}</td>
+            <td>{{movie.deaths}}</td>
+            <td>{{movie.todayDeaths}}</td>
+            <td>{{movie.recovered}}</td>
+            <td>{{movie.active}}</td>
+          </tr>
+          </tbody>
+          </table>
+       </div>
+    </div>
+  </div>
+</div>
+<!--<div class="container">
+<table id="example" class="stripe row-border order-column" style="width:100%">
  <thead>
       <tr>
           <th>Country</th>
-          <th>NewConfirmed</th>
-          <th>TotalConfirmed</th>
-          <th>NewDeaths</th>
-          <th>TotalDeaths</th>
-          <th>NewRecovered</th>
-          <th>TotalRecovered</th>
+          <th>Total Cases</th>
+          <th>Today Cases</th>
+          <th>Total Deaths</th>
+          <th>Today Deaths</th>
+          <th>Recovered</th>
+          <th>Active</th>
       </tr>
   <tbody>
-    <tr *ngFor = "let movie of movies.Countries | slice : 10 :20 ">
-      <td>{{movie.Country}}</td>
-      <td>{{movie.NewConfirmed}}</td>
-      <td>{{movie.TotalConfirmed}}</td>
-      <td>{{movie.NewDeaths}}</td>
-      <td>{{movie.TotalDeaths}}</td>
-      <td>{{movie.NewRecovered}}</td>
-      <td>{{movie.TotalRecovered}}</td>
+    <tr *ngFor = "let movie of allCountries | filterPipe : {country : searchText} | slice:10:20">
+      <td><img src="{{movie.countryInfo.flag}}" width="30" height="17"/> {{movie.country}} </td>
+      <td>{{movie.cases}}</td>
+      <td>{{movie.todayCases}}</td>
+      <td>{{movie.deaths}}</td>
+      <td>{{movie.todayDeaths}}</td>
+      <td>{{movie.recovered}}</td>
+      <td>{{movie.active}}</td>
     </tr>
 </table>
-</div>
-<!--<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <app-charts></app-charts>
 </div>-->
+
 <router-outlet></router-outlet>
