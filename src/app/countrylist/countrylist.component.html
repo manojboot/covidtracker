@@ -1,0 +1,60 @@
+<input [(ngModel)]="country" placeholder="Search By Country" class="advancedSearchTextbox" class="center-block"/>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+       <div class="scrollable">
+        <table class="table table-bordered">
+          <thead class="thead-dark"> 
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+                <th>Today Cases</th>
+                <th>Total Deaths</th>
+                <th>Today Deaths</th>
+                <th>Recovered</th>
+                <th>Active</th>
+                <th>Get Details</th>
+            </tr>
+            </thead>
+        <tbody>
+          <tr *ngFor = "let movie of allCountries | filter : country">
+            <td><img src="{{movie.countryInfo.flag}}" width="30" height="17"/> {{movie.country}} </td>
+            <td>{{movie.cases}}</td>
+            <td>{{movie.todayCases}}</td>
+            <td>{{movie.deaths}}</td>
+            <td>{{movie.todayDeaths}}</td>
+            <td>{{movie.recovered}}</td>
+            <td>{{movie.active}}</td>
+            <td><a [routerLink]="['/countryDetails',movie.country]">Get Details</a></td>
+          </tr>
+          </tbody>
+          </table>
+       </div>
+    </div>
+  </div>
+</div>
+<!--<div class="container">
+<table id="example" class="stripe row-border order-column" style="width:100%">
+ <thead>
+      <tr>
+          <th>Country</th>
+          <th>Total Cases</th>
+          <th>Today Cases</th>
+          <th>Total Deaths</th>
+          <th>Today Deaths</th>
+          <th>Recovered</th>
+          <th>Active</th>
+      </tr>
+  <tbody>
+    <tr *ngFor = "let movie of allCountries | filterPipe : {country : searchText} | slice:10:20">
+      <td><img src="{{movie.countryInfo.flag}}" width="30" height="17"/> {{movie.country}} </td>
+      <td>{{movie.cases}}</td>
+      <td>{{movie.todayCases}}</td>
+      <td>{{movie.deaths}}</td>
+      <td>{{movie.todayDeaths}}</td>
+      <td>{{movie.recovered}}</td>
+      <td>{{movie.active}}</td>
+    </tr>
+</table>
+</div>-->

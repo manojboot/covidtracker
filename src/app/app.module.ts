@@ -13,10 +13,16 @@ import { Chart } from 'chart.js';
 import { CovDataService } from './service/cov-data.service';
 import { Pipe, PipeTransform } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CountryDetailsComponent } from './country-details/country-details.component';
+import { CountrylistComponent } from './countrylist/countrylist.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CountryDetailsComponent,
+    CountrylistComponent,
+    DashboardComponent,
     ],
   imports: [
     BrowserModule,

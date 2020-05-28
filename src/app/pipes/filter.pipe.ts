@@ -1,35 +1,17 @@
 import { Pipe, PipeTransform,Injectable} from '@angular/core';
 
 
-@Pipe({name:'filterPipe',
-pure: false
-})
+@Pipe({name:'filter'})
 @Injectable()
 export class FilterPipe  implements PipeTransform {
-  transform(items: any, filter: any, defaultFilter: boolean): any {
-    if (!filter){
-      return items;
-    }
 
-    if (!Array.isArray(items)){
-      return items;
-    }
+  transform(allCountries: any, country: any): any {
 
-    if (filter && Array.isArray(items)) {
-      let filterKeys = Object.keys(filter);
-
-      if (defaultFilter) {
-        return items.filter(item =>
-            filterKeys.reduce((x, keyName) =>
-                (x && new RegExp(filter[keyName], 'gi').test(item[keyName])) || filter[keyName] == "", true));
-      }
-      else {
-        return items.filter(item => {
-          return filterKeys.some((keyName) => {
-            return new RegExp(filter[keyName], 'gi').test(item[keyName]) || filter[keyName] == "";
-          });
-        });
-      }
+        if(country == undefined)
+              return allCountries;
+        
+        return allCountries.filter(function(item){
+               return item.country.toLowerCase().includes(country.toLowerCase());
+        })
     }
   }
-}

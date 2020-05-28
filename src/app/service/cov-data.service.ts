@@ -27,17 +27,8 @@ export class CovDataService {
     return this.http.get("https://corona.lmao.ninja/v2/countries");
   }
 
-  
-  /*getDailyForecast(): Observable<MainStat> {
-    return this.http.get(`${this.url}`).pipe(
-      map((item: any) => ({
-        cases: item.confirmed.value,
-        deaths: item.deaths.value,
-        recovered: item.recovered.value
-      })));
-  } */
 
   getCountryDetailStats(country:string){
-      return this.http.get("https://covid19.mathdro.id/api/countries/${country}");
+      return this.http.get(`https://covid19.mathdro.id/api/countries/${country}`);
   }
 }
