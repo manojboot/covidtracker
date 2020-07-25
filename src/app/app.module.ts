@@ -4,7 +4,6 @@ import { HttpClientModule ,HttpClient} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-import { HighchartsChartComponent } from 'highcharts-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,7 +16,6 @@ import { RouterModule } from '@angular/router';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import { CountrylistComponent } from './countrylist/countrylist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CountryChartsComponent } from './country-charts/country-charts.component';
 
 export function HttpLoaderFactory(http: HttpClient){
         return new TranslateHttpLoader(http);
@@ -29,7 +27,6 @@ export function HttpLoaderFactory(http: HttpClient){
     CountryDetailsComponent,
     CountrylistComponent,
     DashboardComponent,
-    CountryChartsComponent,HighchartsChartComponent
     ],
   imports: [
     BrowserModule,
