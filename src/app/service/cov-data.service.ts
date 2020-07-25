@@ -3,10 +3,6 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { filter } from 'rxjs/operators';
 import { map } from "rxjs/operators";
-import { MainStat } from '../data/countryStats';
-
-
-
 
 
 @Injectable({
@@ -24,7 +20,7 @@ export class CovDataService {
 
 
   getCountriesStats(){
-    return this.http.get("https://corona.lmao.ninja/v2/countries");
+    return this.http.get(`https://corona.lmao.ninja/v2/countries`);
   }
 
 
@@ -32,3 +28,17 @@ export class CovDataService {
       return this.http.get(`https://covid19.mathdro.id/api/countries/${country}`);
   }
 }
+   interface CountryStats {
+    country?: string;
+    cases?: number;
+    todayCases?: number;
+    deaths?:number;
+    todayDeaths?: number,
+		recovered?: number,
+		active?: number,
+  }
+  interface CountryStatsResponse{
+
+    countryStats : CountryStats[];
+      }
+

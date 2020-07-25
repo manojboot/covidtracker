@@ -1,5 +1,14 @@
 <div class="container">  
-    <div class="card-deck">
-      <h1>{{this.movies.confirmed.value}}</h1>
+  <div class="card-deck">
+    <div class="card" style="background-color:#1c2429">
+      <div class="card-body text-center"style="color:rgb(238, 232, 232)">
+        <b><p class="Lucida Console" style="font-family:monospace;font-size:22px;">Country</p>
+        <br>
+        <p class="card-text" style="font-family:monospace;font-size:22px;"> {{'HOME.CONFIRMED' | translate}} {{this.movies.confirmed.value}}</p>
+        <p class="card-text" style="font-family:monospace;font-size:22px;"> {{'HOME.DEATHS' | translate}}  {{this.movies.deaths.value}}</p>
+        <p class="card-text" style="font-family:monospace;font-size:22px;"> {{'HOME.RECOVERED' | translate}}  {{this.movies.recovered.value}}</p>
+        <p class="card-text" style="font-family:monospace;font-size:22px;"> {{'HOME.FATALITYRATE' | translate}}  {{(this.movies.confirmed.value)/(this.movies.deaths.value)}}</p>
+      </b>
+      </div>
     </div>
 </div>

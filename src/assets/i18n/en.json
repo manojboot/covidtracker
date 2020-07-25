@@ -1,0 +1,24 @@
+{
+    "HOME": {
+        "TITLE": "Global Covid 19 Tracker",
+        "SELECT": "Select Language",
+        "TOTALCASES" :"Toal Confirmed Cases",
+        "NEWCASES":"New Confirmed Cases",
+        "TOTALDEATH":"Total Deaths Reported",
+        "NEWDEATH":"New Deaths Reported",
+        "TOTALRECOVER":"Total Recovered Currently",
+        "NEWRECOVER":"New Recovered Currently",
+        "COUNTRY":"Country",
+        "TOTCASES":"Total Cases ",
+        "TODAYCASES":"Today Cases",
+        "TOTDEATHS":"Total Deaths",
+        "TODDEATHS":"Today Deaths",
+        "RECOVER":"Recovered",
+        "ACTIVE":"Active",
+        "GETDETAILS":"Get Details",
+        "CONFIRMED":"Confirmed",
+        "DEATHS":"Confirmed",
+        "RECOVERED":"Confirmed",
+        "FATALITYRATE":"Fatality Rate"
+    }
+}

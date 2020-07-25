@@ -1,32 +1,33 @@
 <input [(ngModel)]="country" placeholder="Search By Country" class="advancedSearchTextbox" class="center-block"/>
 <br>
-<div class="container">
+<div class="container" *ngIf = "show">
   <div class="row">
     <div class="col-md-12">
        <div class="scrollable">
         <table class="table table-bordered">
           <thead class="thead-dark"> 
             <tr>
-                <th>Country</th>
-                <th>Total Cases</th>
-                <th>Today Cases</th>
-                <th>Total Deaths</th>
-                <th>Today Deaths</th>
-                <th>Recovered</th>
-                <th>Active</th>
-                <th>Get Details</th>
+                <th>{{'HOME.COUNTRY' | translate}}</th>
+                <th>{{'HOME.TOTCASES' | translate}}</th>
+                <th>{{'HOME.TODAYCASES' | translate}}</th>
+                <th>{{'HOME.TOTDEATHS' | translate }}</th>
+                <th>{{'HOME.TODDEATHS' | translate}}</th>
+                <th>{{'HOME.RECOVER' | translate}}</th>
+                <th>{{'HOME.ACTIVE' | translate}}</th>
+                <th>{{'HOME.GETDETAILS' | translate}}</th>
             </tr>
             </thead>
         <tbody>
-          <tr *ngFor = "let movie of allCountries | filter : country">
-            <td><img src="{{movie.countryInfo.flag}}" width="30" height="17"/> {{movie.country}} </td>
+          <tr *ngFor = "let movie of movies | filter : country">
+            <td><img src="{{movie.countryInfo.flag}}" width="30" height="17"/> {{movie.country | translate}} </td>
             <td>{{movie.cases}}</td>
             <td>{{movie.todayCases}}</td>
             <td>{{movie.deaths}}</td>
             <td>{{movie.todayDeaths}}</td>
             <td>{{movie.recovered}}</td>
             <td>{{movie.active}}</td>
-            <td><a [routerLink]="['/countryDetails',movie.country]">Get Details</a></td>
+            <td><a [routerLink]="['/countryDetails',movie.country]" (click) = "onSelect()">Get Details</a></td>
+            <!--<td (click) = "onSelect(movie.country)">Get Details</td>-->
           </tr>
           </tbody>
           </table>

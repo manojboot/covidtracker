@@ -1,0 +1,24 @@
+{
+    "HOME": {
+        "TITLE": "ग्लोबल कोविद 19 ट्रैकर हिंदी",
+        "SELECT": "भाषा का चयन करें ",
+        "TOTALCASES" :"कुल पुष्टि मामले",
+        "NEWCASES":"नई पुष्टि के मामले",
+        "TOTALDEATH":"कुल मौत की सूचना दी",
+        "NEWDEATH":"नई मौत की सूचना दी ",
+        "TOTALRECOVER":"वर्तमान में कुल पुनर्प्राप्त",
+        "NEWRECOVER":"वर्तमान में नया पुनर्प्राप्त",
+        "COUNTRY":"देश",
+        "TOTCASES":"कुल मामले ",
+        "TODAYCASES":"आज मामले",
+        "TOTDEATHS":"टोटल डेथ",
+        "TODDEATHS":"आज डेथ",
+        "RECOVER":"पुनर्प्राप्त",
+        "ACTIVE":"सक्रिय",
+        "GETDETAILS":"विवरण प्राप्त करें",
+        "CONFIRMED":"पुष्टि",
+        "DEATHS":"मौतें",
+        "RECOVERED":"पुनर्प्राप्त",
+        "FATALITYRATE":"मृत्यु दर"
+    }
+}

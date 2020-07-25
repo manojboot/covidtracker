@@ -1,9 +1,15 @@
-<div>
-    <br><br>
-     <h6>
-    <b><p class="text-center" style="font-family:monospace;font-size:42px;">Global Covid 19 Tracker</p></b>
+<br>
+<header class="w3-container w3-black">
+  <h6>
+    <b><p class="text-center" style="font-family:monospace;font-size:42px;">{{'HOME.TITLE' | translate}}</p></b>
     </h6>
-  </div>
+    <p align = "right" >
+    <button class ="button" (click)="useLanguage('en')">en</button>&nbsp;
+    <button class ="button" (click)="useLanguage('hi')">hi</button>&nbsp;
+    <a [routerLink]="['/countryCharts']" (click) = "onSelect()">Get Details</a>
+</header>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="styleshett" href="https://code.jquery.com/jquery-3.5.1.js">
   <link rel="styleshett" href="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js">
   <link rel="styleshett" href="https://cdn.datatables.net/fixedcolumns/3.3.1/js/dataTables.fixedColumns.min.js">
@@ -13,35 +19,33 @@
   <br><br>
   <div class="container">  
     <div class="card-deck">
-      <div class="card" style="background-color:#1c2429">
+      <div class="card" style="background-color:#343a40">
         <div class="card-body text-center"style="color:rgb(238, 232, 232)">
-          <b><p class="Lucida Console" style="font-family:monospace;font-size:22px;">Toal Confirmed Cases</p>
+          <b><p class="Lucida Console" style="font-family:monospace;font-size:22px;">{{'HOME.TOTALCASES' | translate}}</p>
           <p>{{this.movies.Global.TotalConfirmed}}</p>
           <br>
-          <p class="card-text" style="font-family:monospace;font-size:22px;">New Confirmed Cases</p>
+          <p class="card-text" style="font-family:monospace;font-size:22px;">{{'HOME.NEWCASES' | translate}}</p>
           <p>{{this.movies.Global.NewConfirmed}}</p>
         </b>
         </div>
       </div>
-      <div class="card" style="background-color:#1c2429">
+      <div class="card" style="background-color:#343a40">
         <div class="card-body text-center"style="color:rgb(238, 232, 232)">
-          <b><p class="card-text" style="font-family:monospace;font-size:22px;">Total Dealths Reported</p>
+          <b><p class="card-text" style="font-family:monospace;font-size:22px;">{{'HOME.TOTALDEATH' | translate}}</p>
           <p>{{this.movies.Global.TotalDeaths}}</p>
           <br>
-          <p class="card-text" style="font-family:monospace;font-size:22px;">New Dealths Reported</p>
+          <p class="card-text" style="font-family:monospace;font-size:22px;">{{'HOME.NEWDEATH' | translate}}</p>
           <p>{{this.movies.Global.NewDeaths}}</p></b>
         </div>
       </div>
-      <div class="card" style="background-color:#1c2429">
+      <div class="card" style="background-color:#343a40">
         <div class="card-body text-center" style="color:rgb(238, 232, 232)">
-          <b><p class="card-text" style="font-family:monospace;font-size:22px;">Total Recovered Currently</p>
+          <b><p class="card-text" style="font-family:monospace;font-size:22px;">{{'HOME.TOTALRECOVER' | translate}}</p>
           <p>{{this.movies.Global.TotalRecovered}}</p>
           <br>
-          <p class="card-text" style="font-family:monospace;font-size:22px;">New Recovered Currently</p>
+          <p class="card-text" style="font-family:monospace;font-size:22px;">{{'HOME.NEWRECOVER' | translate}}</p>
           <p>{{this.movies.Global.NewRecovered}}</p></b>
         </div>
       </div>
     </div>
   </div>
-  <br>
-  <div>

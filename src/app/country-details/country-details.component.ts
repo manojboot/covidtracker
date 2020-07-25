@@ -22,7 +22,7 @@ export class CountryDetailsComponent implements OnInit {
         this.covidService.getCountryDetailStats(params.get('country')).subscribe(c =>{
          console.log(c);
          this.movies = c;
-         console.log(this.movies.confirmed);
+         console.log(this.movies[0].confirmed);
          })   
          });
     }
